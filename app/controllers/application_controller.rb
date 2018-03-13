@@ -105,7 +105,11 @@ class ApplicationController < Sinatra::Base
       redirect "/login"
     elsif Tweet.find_by id: params[:id]
       @tweet = Tweet.find(params[:id])
-      erb :edit if current_user(session).id == @tweet.user_id
+      if current_user(session).id == @tweet.user_id
+        erb :edit
+      else
+        redirect "/tweets"
+      end
     else
       redirect "/tweets"
     end
