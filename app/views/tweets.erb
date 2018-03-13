@@ -1,5 +1,5 @@
 <h1>Welcome, <%= @user.username %>.</h1>
-<a href="/tweets/new">Post a Tweet</a>
+<a href="/tweets/new">Tweet</a>
 <% @tweets.each do |tweet| %>
 <p><%= tweet.content %></p>
 <% end %>
